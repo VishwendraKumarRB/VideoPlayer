@@ -18,9 +18,8 @@ const App = () => {
     return `${mins}:${secs}`;
   };
   return (
-    <View style={{flex: 1}}>
       <TouchableOpacity
-        style={{width: '100%', height: 230}}
+        style={{width: '100%', height: 230,flex:1}}
         onPress={() => {
           setClicked(true);
         }}>
@@ -31,10 +30,12 @@ const App = () => {
           }}
           ref={ref}
           onProgress={x => {
+            console.log("video",x)
             setProgress(x);
           }}
-          style={{width: '100%', height: 230}}
+          style={{width: '100%', height: 230,flex:1}}
           resizeMode="contain"
+
         />
 
         {clicked && (
@@ -151,7 +152,6 @@ const App = () => {
           </TouchableOpacity>
         )}
       </TouchableOpacity>
-    </View>
   );
 };
 
