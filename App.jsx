@@ -27,7 +27,7 @@ const App = () => {
     <TouchableOpacity
       style={{width: '100%', height: 230, flex: 1}}
       onPress={() => {
-        setClicked(!clicked);
+        setClicked(true);
       }}>
       <Video
         paused={paused}
@@ -55,6 +55,9 @@ const App = () => {
             backgroundColor: 'rgba(0,0,0,.5)',
             justifyContent: 'center',
             alignItems: 'center',
+          }}
+          onPress={() => {
+            setClicked(false);
           }}>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
@@ -148,7 +151,6 @@ const App = () => {
                     : require('./src/assets/full-size.png')
                 }
                 style={{width: 30, height: 30, tintColor: 'white'}}
-                
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setMute(!mute)}>
