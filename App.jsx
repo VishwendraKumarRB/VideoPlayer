@@ -7,6 +7,8 @@ const App = () => {
   const [clicked, setClicked] = useState(false);
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(null);
+  const [fullScreen, setFullScreen] = useState(true);
+  const[mute,setMute]=useState(true);
   const ref = useRef();
   const formate = seconds => {
     let mins = parseInt(seconds / 60)
@@ -125,11 +127,27 @@ const App = () => {
                 paddingHorizontal: 20,
                 alignItems: 'center',
               }}>
-                <TouchableOpacity>
-                  <Image source={require("./src/assets/full-size.png")}
-                  style={{width:30,height:30,tintColor:"white"}}/>
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity onPress={() => setFullScreen(!fullScreen)}>
+                <Image
+                  source={
+                    fullScreen
+                      ? require('./src/assets/full-size.png')
+                      : require('./src/assets/minimize.png')
+                  }
+                  style={{width: 30, height: 30, tintColor: 'white'}}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setMute(!mute)}>
+                <Image
+                  source={
+                    mute
+                      ? require('./src/assets/medium-volume.png')
+                      : require('./src/assets/mute.png')
+                  }
+                  style={{width: 30, height: 30, tintColor: 'white'}}
+                />
+              </TouchableOpacity>
+            </View>
           </TouchableOpacity>
         )}
       </TouchableOpacity>
